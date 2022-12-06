@@ -1,0 +1,45 @@
+<div class="col-sm-12">
+    <p class="drop-downs p-10 col-sm-6">
+        <ng-select placeholder="Select Location"
+            [items]="locationList" [(ngModel)]="filterData.location"
+            (change)="applyFilter()"
+            [clearable]="true">                            
+                <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                    <span [title]="item">{{item}}</span>
+                </ng-template>
+        </ng-select>
+    </p>
+    <p class="drop-downs p-10 col-sm-6">
+        <ng-select placeholder="Select HDD"
+            [items]="hddList" [(ngModel)]="filterData.hdd"
+            (change)="applyFilter()"
+            [clearable]="true">                            
+                <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                    <span [title]="item">{{item}}</span>
+                </ng-template>
+        </ng-select>
+    </p>
+</div>
+<div class="col-sm-12">
+    <p class="p-10 col-sm-6">
+        <!-- <ng-select placeholder="Select RAM"
+            [items]="ramList" [(ngModel)]="filterData.ram"
+            (change)="applyFilter()"
+            [clearable]="true">                            
+                <ng-template ng-option-tmp ng-label-tmp let-item="item">
+                    <span [title]="item">{{item}}</span>
+                </ng-template>
+        </ng-select> -->
+        <span *ngFor="let item of ramList">
+            <mat-checkbox [(ngModel)]="item.isSelected" color="primary"
+                        (ngModelChange)="applyFilter('checkbox')">
+            {{item.value}}
+            </mat-checkbox>
+        </span>
+    </p>
+    <p class="storage p-10 col-sm-6">
+        <mat-slider step="4" min="1" max="2000">
+            <input matSliderThumb [(ngModel)]="filterData.storage" (change)="applyFilter()">
+        </mat-slider>
+    </p>
+</div>

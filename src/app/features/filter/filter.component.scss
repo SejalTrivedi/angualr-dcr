@@ -1,0 +1,29 @@
+::ng-deep {
+    .drop-downs {
+        display: inline-block;
+        // width: 92px !important;
+        float: left;
+    
+        .ng-select{
+          width: 100%;
+          .ng-select-container{
+            min-height: 41px !important;
+            .ng-value-container{
+              border-top: 0;
+              padding-top: 13px;
+            }
+          }
+        }
+    }
+    .storage {
+        mat-slider{
+            width: 100%;
+        }
+    }
+    .col-sm-12 {
+        width: 100%;
+    }
+    .col-sm-6 {
+        width: 50%;
+    }
+}
